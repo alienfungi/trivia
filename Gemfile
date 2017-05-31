@@ -11,6 +11,8 @@ ruby '2.4.1'
 gem 'rails', '~> 5.1.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
+# Include HAML templating language
+gem 'haml-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -24,6 +26,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Include Twitter Bootstrap for styling
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
