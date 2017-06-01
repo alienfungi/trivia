@@ -12,6 +12,7 @@ gem 'rails', '~> 5.1.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Include HAML templating language
+gem 'haml'
 gem 'haml-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
