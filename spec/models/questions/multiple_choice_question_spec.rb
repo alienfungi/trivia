@@ -5,7 +5,7 @@ RSpec.describe MultipleChoiceQuestion do
   it { should validate_presence_of(:answer_2) }
   it { should validate_presence_of(:answer_3) }
   it { should validate_presence_of(:answer_4) }
-  it { should validate_inclusion_of(:correct_answer_number).in_range(1..4) }
+  it { should validate_inclusion_of(:correct_answer_number).in_array(%w(1 2 3 4)) }
 
   it 'checks if an answer is correct' do
     question = FactoryGirl.build :multiple_choice_question,

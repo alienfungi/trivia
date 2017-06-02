@@ -1,0 +1,8 @@
+%h1 New Multiple Choice Question
+= f.input :body, label: 'Question'
+= f.input :answer_1
+= f.input :answer_2
+= f.input :answer_3
+= f.input :answer_4
+= f.input :correct_answer_number, as: 'select',
+  collection: f.object.correct_answer_number_values, prompt: 'Select one'

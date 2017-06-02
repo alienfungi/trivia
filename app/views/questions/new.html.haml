@@ -1,0 +1,4 @@
+.container
+  = simple_form_for @question do |f|
+    = render partial: "#{ @question.class.name.underscore }_fields", locals: { f: f }
+    = f.button :submit, 'Create Question'
