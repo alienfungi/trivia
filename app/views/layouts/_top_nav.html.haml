@@ -10,7 +10,7 @@
         %span.icon-bar
       = link_to 'Trivia', root_path, class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
-      - if user_signed_in?
+      - if can? :create, Question
         %ul.nav.navbar-nav
           %li= link_to 'New Question', new_multiple_choice_question_path
       %ul.nav.navbar-nav.navbar-right
