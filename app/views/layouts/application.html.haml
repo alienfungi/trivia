@@ -1,33 +1,18 @@
 !!! 5
 %html
   %head
-    %title Trivia
+    %title #{ yield :headline } | Trivia
     = csrf_meta_tags
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1' }
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
-    %nav.navbar.navbar-inverse.navbar-fixed-top
-      .container
-        .navbar-header
-          %button.navbar-toggle.collapsed{ type: 'button',
-            data: { toggle: 'collapse', target: '#navbar' },
-            aria: { expanded: 'false', controls: 'navbar' }}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to 'Trivia', root_path, class: 'navbar-brand'
-        #navbar.navbar-collapse.collapse
-          %ul.nav.navbar-nav
-            %li= link_to 'New Question', new_multiple_choice_question_path
+    = render 'layouts/top_nav'
 
-    - flash.each do |type, message|
-      %div{ class: flash_classes(type), role: 'alert' }
-        %button.close{ type: 'button', data: { dismiss: 'alert' }, aria: { label: 'Close' } }
-          %span{ aria: { hidden: 'true' } } &times;
-        = message
+    .container
+      = render 'layouts/flash_messages'
 
+      %h1= yield :headline
 
-    = yield
+      = yield

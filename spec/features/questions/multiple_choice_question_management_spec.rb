@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'User creates a multiple choice question' do
+  let(:user) { FactoryGirl.create(:user) }
+
   before(:each) do
+    sign_in user
     visit '/'
     click_link 'New Question'
   end
