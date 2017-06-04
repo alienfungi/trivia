@@ -15,6 +15,8 @@
           %li= link_to 'New Question', new_multiple_choice_question_path
         - if can? :create, Answer
           %li= link_to 'Answer Question', new_answer_path
+        - if can? :show, User
+          %li= link_to 'View Scores', user_path(current_user)
 
       %ul.nav.navbar-nav.navbar-right
         %li

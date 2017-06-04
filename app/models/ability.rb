@@ -8,6 +8,7 @@ class Ability
     elsif user.persisted?
       can :create, Question
       can :create, Answer
+      can :show, User, id: user.id
     end
   end
 end

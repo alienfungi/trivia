@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     controller: :questions, type: 'MultipleChoiceQuestion'
 
   resources :answers, only: [:create, :new]
+
+  resources :users, only: [:show]
 end

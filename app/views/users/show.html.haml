@@ -1,0 +1,24 @@
+- content_for :headline, 'Your Personal Scores'
+
+%ul.list-group
+  %li.list-group-item
+    Current Streak:
+    .pull-right #{ @user.current_streak } #{ @user.current_streak_type }
+  %li.list-group-item
+    Longest Correct Streak
+    .pull-right= @user.longest_correct_streak
+  %li.list-group-item
+    Longest Incorrect Streak
+    .pull-right= @user.longest_incorrect_streak
+  %li.list-group-item
+    Total Answers Given
+    .pull-right= @user.total_answers
+  %li.list-group-item
+    Total Correct Answers Given
+    .pull-right= @user.total_correct_answers
+  %li.list-group-item
+    Total Incorrect Answers Given
+    .pull-right= @user.total_incorrect_answers
+  %li.list-group-item
+    Score
+    .pull-right= @user.score
