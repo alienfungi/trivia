@@ -11,11 +11,21 @@ class MultipleChoiceQuestion < Question
     OPTIONS_WHITELIST
   end
 
-  def check?(number_of_guess)
-    number_of_guess.to_s == correct_answer_number.to_s
+  def answer
+    self.send("answer_#{ correct_answer_number }")
+  end
+
+  def check?(guessed_answer)
+    guessed_answer.number.to_s == correct_answer_number.to_s
   end
 
   def correct_answer_number_values
     CORRECT_ANSWER_NUMBER_VALUES.dup
+  end
+
+  def answers_for_select
+    correct_answer_number_values.map do |number|
+      [self.send("answer_#{ number }"), number]
+    end
   end
 end

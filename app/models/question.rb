@@ -1,17 +1,33 @@
 class Question < ApplicationRecord
   QUESTION_TYPES = %w(MultipleChoiceQuestion).freeze
 
+  has_many :users
+
   validates_presence_of :body
   validates_length_of :body, maximum: 255
 
   before_validation :cleanse_options
 
-  def self.question_types
-    QUESTION_TYPES.dup
+  class << self
+    def question_types
+      QUESTION_TYPES.dup
+    end
+
+    def options_whitelist
+      raise NotImplementedError
+    end
+
+    def retrieve
+      order('RANDOM()').first
+    end
   end
 
-  def self.options_whitelist
+  def answer
     raise NotImplementedError
+  end
+
+  def blank_answer
+    "#{ self.class.name }Answer".constantize.new
   end
 
   def check?(guessed_answer)

@@ -6,7 +6,8 @@ class Ability
     if false # Stubbed for admin permissions
       can :manage, :all
     elsif user.persisted?
-      can [:create, :read], Question
+      can :create, Question
+      can :create, Answer
     end
   end
 end

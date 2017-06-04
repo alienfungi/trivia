@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature 'User creates a multiple choice question' do
-  let(:user) { FactoryGirl.create(:user) }
+RSpec.feature 'User creates multiple choice questions' do
+  let(:user) { create(:user) }
 
   before(:each) do
     sign_in user

@@ -3,4 +3,15 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  belongs_to :question, optional: true
+
+  def assign_question(&proposed_question)
+    if question
+      false
+    else
+      self.question = proposed_question.call
+      save!
+    end
+  end
 end
