@@ -10,8 +10,10 @@ class AnswersController < ApplicationController
       render :new
     else
       if @question.check? @answer
+        current_user.answered_correctly!
         flash.now[:notice] = 'Correct!'
       else
+        current_user.answered_incorrectly!
         flash.now[:alert] = 'Wrong!'
       end
       @question.users.delete(current_user)

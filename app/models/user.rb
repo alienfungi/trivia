@@ -34,4 +34,18 @@ class User < ApplicationRecord
       save!
     end
   end
+
+  def answered_correctly!
+    with_lock do
+      self.score += 4
+      save!
+    end
+  end
+
+  def answered_incorrectly!
+    with_lock do
+      self.score = score >= 1 ? score - 1 : 0
+      save!
+    end
+  end
 end

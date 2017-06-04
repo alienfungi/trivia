@@ -56,4 +56,26 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#answered_correctly!' do
+    it 'should grant the user 4 points' do
+      user.score = 0
+      user.answered_correctly!
+      expect(user.score).to be 4
+    end
+  end
+
+  describe '#answered_incorrectly!' do
+    it 'should deduct 1 point from the user' do
+      user.score = 2
+      user.answered_incorrectly!
+      expect(user.score).to be 1
+    end
+
+    it 'should not be able to reduce score below 0' do
+      user.score = 0
+      user.answered_incorrectly!
+      expect(user.score).to be 0
+    end
+  end
 end
