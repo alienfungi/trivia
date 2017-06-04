@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id         :integer          not null, primary key
+#  type       :string
+#  body       :text             not null
+#  options    :hstore           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Question < ApplicationRecord
   QUESTION_TYPES = %w(MultipleChoiceQuestion).freeze
 

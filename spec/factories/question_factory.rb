@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id         :integer          not null, primary key
+#  type       :string
+#  body       :text             not null
+#  options    :hstore           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 FactoryGirl.define do
   factory :question do
     body do

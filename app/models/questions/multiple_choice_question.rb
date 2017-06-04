@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id         :integer          not null, primary key
+#  type       :string
+#  body       :text             not null
+#  options    :hstore           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class MultipleChoiceQuestion < Question
   OPTIONS_WHITELIST = [:answer_1, :answer_2, :answer_3, :answer_4, :correct_answer_number].freeze
   CORRECT_ANSWER_NUMBER_VALUES = %w(1 2 3 4).freeze
