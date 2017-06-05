@@ -1,24 +1,37 @@
-- content_for :headline, 'Your Personal Scores'
+- content_for :headline, 'Scores'
 
-%ul.list-group
-  %li.list-group-item
-    Current Streak:
-    .pull-right #{ @user.current_streak } #{ @user.current_streak_type }
-  %li.list-group-item
-    Longest Correct Streak
-    .pull-right= @user.longest_correct_streak
-  %li.list-group-item
-    Longest Incorrect Streak
-    .pull-right= @user.longest_incorrect_streak
-  %li.list-group-item
-    Total Answers Given
-    .pull-right= @user.total_answers
-  %li.list-group-item
-    Total Correct Answers Given
-    .pull-right= @user.total_correct_answers
-  %li.list-group-item
-    Total Incorrect Answers Given
-    .pull-right= @user.total_incorrect_answers
-  %li.list-group-item
-    Score
-    .pull-right= @user.score
+.row
+  .col-md-6
+    %h2 Personal
+    %ul.list-group
+      %li.list-group-item
+        Current Streak:
+        .pull-right #{ @user.current_streak } #{ @user.current_streak_type }
+      %li.list-group-item
+        Longest Correct Streak
+        .pull-right= @user.longest_correct_streak
+      %li.list-group-item
+        Longest Incorrect Streak
+        .pull-right= @user.longest_incorrect_streak
+      %li.list-group-item
+        Total Answers Given
+        .pull-right= @user.total_answers
+      %li.list-group-item
+        Total Correct Answers Given
+        .pull-right= @user.total_correct_answers
+      %li.list-group-item
+        Total Incorrect Answers Given
+        .pull-right= @user.total_incorrect_answers
+      %li.list-group-item
+        Score
+        .pull-right= @user.score
+  .col-md-6
+    %h2 Global
+    %table#scoreboard.table.table-striped.table-bordered
+      %thead
+        %tr
+          %th Score
+          %th Username
+      %tbody
+        = render @users
+    #scoreboard_pagination= render partial: 'pagination', locals: { users: @users }

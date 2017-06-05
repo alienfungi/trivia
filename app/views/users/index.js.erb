@@ -1,0 +1,2 @@
+$('#scoreboard tbody').html('<%= j render(@users) %>');
+$('#scoreboard_pagination').html('<%= j render(partial: 'pagination', locals: { users: @users }) %>');

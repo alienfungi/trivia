@@ -32,7 +32,7 @@ FactoryGirl.define do
       Forgery('internet').email_address.sub(/@/, "#{ n }@")
     end
     sequence :username do |n|
-      "#{ Forgery('name').first_name }#{ n }"
+      "#{ Forgery('name').first_name[0,8] }#{ n }"
     end
     password 'password'
     password_confirmation 'password'

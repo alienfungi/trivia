@@ -37,6 +37,8 @@ gem 'simple_form'
 gem 'devise'
 # Itemized user permissions
 gem 'cancancan'
+# Pagination
+gem 'kaminari'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
