@@ -33,6 +33,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :question, optional: true
+  has_many :questions
 
   validates :username, uniqueness: true,
     format: { with: /\A[a-z]\w+\z/i }, length: { within: (3..12) }
@@ -78,6 +79,10 @@ class User < ApplicationRecord
 
   def total_answers
     total_correct_answers + total_incorrect_answers
+  end
+
+  def questions_created
+    questions.count
   end
 
   private

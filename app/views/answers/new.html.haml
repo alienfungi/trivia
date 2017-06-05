@@ -13,3 +13,9 @@
       %span.label.label-info= category.name.titleize
   - else
     None
+%p
+  Created by:
+  - if @question.user
+    = @question.user.username
+  - else
+    ?

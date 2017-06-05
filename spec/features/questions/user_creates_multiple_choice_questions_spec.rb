@@ -23,6 +23,7 @@ RSpec.feature 'User creates multiple choice questions' do
     expect(question.body).to eq('Why is the sky yellow?')
     expect(question.answer_1).to eq('Because 42')
     expect(question.category_list).to include('life', 'the universe', 'everything')
+    expect(user.questions).to include(question)
   end
 
   scenario 'with incomplete data' do

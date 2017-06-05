@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = klass.new(question_params)
+    @question.user_id = current_user.id
     if @question.save
       flash[:notice] = 'Successfully created question'
       redirect_to [:new, @type.underscore.to_sym]

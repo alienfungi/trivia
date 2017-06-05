@@ -15,6 +15,7 @@ class Question < ApplicationRecord
 
   acts_as_taggable_on :categories
 
+  belongs_to :user, optional: true
   has_many :users
 
   validates_presence_of :body, :type
