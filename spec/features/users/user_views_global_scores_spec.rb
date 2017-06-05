@@ -19,7 +19,7 @@ RSpec.feature 'User views global scores' do
 
   scenario 'sees lowest score on second page', js: true do
     lowest_score = User.order(score: :asc).first.score
-    click_link '2'
+    within('#scoreboard_pagination') { click_link '2' }
     within_table 'scoreboard' do
       expect(page).to have_content lowest_score
     end
