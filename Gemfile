@@ -50,10 +50,10 @@ gem 'kaminari'
 group :development, :test do
   # Call 'binding.pry' anywhere in the code to stop execution and get a debugger console
   gem 'pry-rails'
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
   gem 'rspec-rails'
+  # Adds support for Capybara system testing and poltergeist driver
+  gem 'capybara', '~> 2.13'
+  gem 'poltergeist'
   gem 'factory_girl_rails'
   # Generate lorem ipsum
   gem 'forgery'
