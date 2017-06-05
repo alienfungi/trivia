@@ -22,7 +22,7 @@ class AnswersController < ApplicationController
 
   def new
     unless current_user.assign_question { Question.retrieve }
-      flash[:alert] = 'It looks like you didn\'t finish answering your last question.'
+      flash.now[:alert] = 'It looks like you didn\'t finish answering your last question.'
     end
     @question = current_user.question
     if @question
