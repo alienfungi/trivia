@@ -1,5 +1,15 @@
 - content_for :headline, 'Current Question'
 
-= simple_form_for @answer, url: answers_path, html: { id: 'answer_form' } do |f|
-  = render partial: "#{ @answer.class.name.underscore }_fields", locals: { f: f }
-  = f.submit 'Answer'
+.well
+  = simple_form_for @answer, url: answers_path, html: { id: 'answer_form' } do |f|
+    = render partial: "#{ @answer.class.name.underscore }_fields", locals: { f: f }
+    = f.submit 'Answer', class: 'btn btn-default'
+
+%p
+  Question categories:
+  - if @question.categories.any?
+    %br
+    - @question.categories.each do |category|
+      %span.label.label-info= category.name.titleize
+  - else
+    None

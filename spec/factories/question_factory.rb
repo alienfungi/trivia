@@ -18,5 +18,11 @@ FactoryGirl.define do
       animal = %w(cow pig chicken frog dog cat mouse).sample
       "#{ query } is #{ color } #{ animal }?"
     end
+    category_list do
+      quantity = rand 4
+      results = []
+      quantity.times { results << Forgery('name').job_title }
+      results.join(', ')
+    end
   end
 end

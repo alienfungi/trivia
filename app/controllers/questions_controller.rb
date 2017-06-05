@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(@type.underscore.to_sym).permit(:body, *klass.options_whitelist)
+    params.require(@type.underscore.to_sym).permit(:body, :category_list, *klass.options_whitelist)
   end
 
   def set_type

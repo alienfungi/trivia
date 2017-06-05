@@ -1,3 +1,5 @@
 = simple_form_for @question do |f|
+  = f.input :body, label: 'Question'
   = render partial: "#{ @question.class.name.underscore }_fields", locals: { f: f }
+  = f.input :category_list, label: 'Categories (separated by commas)'
   = f.button :submit, 'Create Question'

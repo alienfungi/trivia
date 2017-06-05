@@ -13,11 +13,14 @@
 class Question < ApplicationRecord
   QUESTION_TYPES = %w(MultipleChoiceQuestion).freeze
 
+  acts_as_taggable_on :categories
+
   has_many :users
 
   validates_presence_of :body
   validates_length_of :body, maximum: 255
 
+  before_validation :cleanse_categories
   before_validation :cleanse_options
 
   class << self
@@ -47,6 +50,12 @@ class Question < ApplicationRecord
   end
 
   private
+
+  def cleanse_categories
+    category_list.map! do |category|
+      category.gsub(/\s+/, ' ')
+    end
+  end
 
   def cleanse_options
     options.keep_if do |option|

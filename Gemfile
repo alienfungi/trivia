@@ -39,6 +39,8 @@ gem 'devise'
 gem 'cancancan'
 # Pagination
 gem 'kaminari'
+# Tagging
+gem 'acts-as-taggable-on'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

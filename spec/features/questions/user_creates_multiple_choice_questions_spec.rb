@@ -16,8 +16,13 @@ RSpec.feature 'User creates multiple choice questions' do
     fill_in 'Answer 3', with: 'Because the ground is purple'
     fill_in 'Answer 4', with: 'Because I said so'
     select '1', from: 'Correct answer number'
+    fill_in 'Categories', with: "life, the  \n universe, Everything"
     click_button 'Create Question'
     expect(page).to have_content('Successfully created question')
+    question = Question.last
+    expect(question.body).to eq('Why is the sky yellow?')
+    expect(question.answer_1).to eq('Because 42')
+    expect(question.category_list).to include('life', 'the universe', 'everything')
   end
 
   scenario 'with incomplete data' do
