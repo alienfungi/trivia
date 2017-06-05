@@ -23,6 +23,7 @@
 #  current_incorrect_streak :integer          default(0), not null
 #  total_correct_answers    :integer          default(0), not null
 #  total_incorrect_answers  :integer          default(0), not null
+#  username                 :string           default(""), not null
 #
 
 require 'rails_helper'

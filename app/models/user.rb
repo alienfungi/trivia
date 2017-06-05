@@ -23,6 +23,7 @@
 #  current_incorrect_streak :integer          default(0), not null
 #  total_correct_answers    :integer          default(0), not null
 #  total_incorrect_answers  :integer          default(0), not null
+#  username                 :string           default(""), not null
 #
 
 class User < ApplicationRecord
@@ -32,6 +33,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :question, optional: true
+
+  validates :username, uniqueness: true,
+    format: { with: /\A[a-z]\w+\z/i }, length: { within: (3..12) }
 
   def assign_question(&proposed_question)
     if question

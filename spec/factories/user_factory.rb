@@ -23,12 +23,16 @@
 #  current_incorrect_streak :integer          default(0), not null
 #  total_correct_answers    :integer          default(0), not null
 #  total_incorrect_answers  :integer          default(0), not null
+#  username                 :string           default(""), not null
 #
 
 FactoryGirl.define do
   factory :user do
     sequence :email do |n|
       Forgery('internet').email_address.sub(/@/, "#{ n }@")
+    end
+    sequence :username do |n|
+      "#{ Forgery('name').first_name }#{ n }"
     end
     password 'password'
     password_confirmation 'password'

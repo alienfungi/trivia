@@ -19,8 +19,15 @@
           %li= link_to 'View Scores', user_path(current_user)
 
       %ul.nav.navbar-nav.navbar-right
-        %li
-          - if user_signed_in?
-            = link_to 'Log out', destroy_user_session_path, method: :delete
-          - else
+        - if user_signed_in?
+          %li
+            = link_to '#', class: 'dropdown-toggle', role: 'button',
+              data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } do
+              = current_user.username
+              %span.caret
+            %ul.dropdown-menu
+              %li= link_to 'Edit account', edit_user_registration_path(current_user)
+              %li= link_to 'Log out', destroy_user_session_path, method: :delete
+        - else
+          %li
             = link_to 'Log in', new_user_session_path
