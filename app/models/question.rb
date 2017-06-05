@@ -17,7 +17,7 @@ class Question < ApplicationRecord
 
   has_many :users
 
-  validates_presence_of :body
+  validates_presence_of :body, :type
   validates_length_of :body, maximum: 255
 
   before_validation :cleanse_categories
