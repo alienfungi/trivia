@@ -8,6 +8,7 @@
 #  options    :hstore           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
 
 class MultipleChoiceQuestion < Question
@@ -16,7 +17,10 @@ class MultipleChoiceQuestion < Question
 
   store_accessor :options, OPTIONS_WHITELIST
 
-  validates_presence_of :answer_1, :answer_2, :answer_3, :answer_4, :correct_answer_number
+  validates :answer_1, presence: true, length: { maximum: 255 }
+  validates :answer_2, presence: true, length: { maximum: 255 }
+  validates :answer_3, presence: true, length: { maximum: 255 }
+  validates :answer_4, presence: true, length: { maximum: 255 }
   validates_inclusion_of :correct_answer_number, in: CORRECT_ANSWER_NUMBER_VALUES
 
   def self.options_whitelist

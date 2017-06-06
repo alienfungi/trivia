@@ -8,9 +8,17 @@ RSpec.describe MultipleChoiceQuestion do
   let(:right_answer) { MultipleChoiceQuestionAnswer.new(number: '1') }
 
   it { should validate_presence_of(:answer_1) }
+  it { should validate_length_of(:answer_1).is_at_most(255) }
+
   it { should validate_presence_of(:answer_2) }
+  it { should validate_length_of(:answer_2).is_at_most(255) }
+
   it { should validate_presence_of(:answer_3) }
+  it { should validate_length_of(:answer_3).is_at_most(255) }
+
   it { should validate_presence_of(:answer_4) }
+  it { should validate_length_of(:answer_4).is_at_most(255) }
+
   it { should validate_inclusion_of(:correct_answer_number).in_array(%w(1 2 3 4)) }
 
   it 'checks if an answer is correct' do

@@ -33,6 +33,11 @@ RSpec.describe User, type: :model do
   let(:question) { build(:question) }
   let(:new_question) { build(:question) }
 
+  it { should validate_length_of(:username).is_at_least(3).is_at_most(12) }
+  it { should validate_uniqueness_of(:username) }
+  it { should_not allow_values('1arst', 'arst%', 'a arst', '_arst').for(:username) }
+  it { should allow_values('arst', 'Ar_123_', 'AR1').for(:username) }
+
   describe '#assign_question' do
     before(:each) do
       allow(user).to receive(:save!) { true }
